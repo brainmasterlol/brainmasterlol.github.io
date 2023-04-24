@@ -1,103 +1,161 @@
-/* Estilo para el contenedor principal */
+/* Estilos para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el encabezado */
+h1 {
+  background-color: #2d3436;
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+  padding: 24px;
+  text-align: center;
+}
+
+/* Estilos para los títulos de sección */
+h2 {
+  background-color: #dfe6e9;
+  color: #2d3436;
+  font-size: 24px;
+  margin: 0;
+  padding: 12px;
+}
+
+/* Estilos para el contenedor principal */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilo para el encabezado */
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    font-size: 36px;
-    margin: 0;
-  }
-  
-  /* Estilo para el formulario */
-  form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  form label,
-  form input,
-  form select,
-  form textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-  
-  form label {
-    font-weight: bold;
-  }
-  
-  form input,
-  form select,
-  form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  form button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  /* Estilo para la tabla de inventario */
-  #inventario, #ventas {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  #inventario th,
-  #inventario td,
-  #ventas th,
-  #ventas td{
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  #inventario th, #ventas th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  #inventario tr:nth-child(even), #ventas tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .phone-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .phone-table th, .phone-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-  }
-  
-  .phone-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .phone-table tr:nth-child(even) {
-    background-color: #f5f5f5;
-  }
-  
+  margin: 24px auto;
+  max-width: 960px;
+}
+
+/* Estilos para el formulario de agregar teléfono */
+form {
+  background-color: #fff;
+  border: 1px solid #dfe6e9;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+/* Estilos para las etiquetas de formulario */
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Estilos para los campos de formulario */
+input[type="text"],
+input[type="number"],
+textarea {
+  border: 1px solid #dfe6e9;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 8px;
+  width: 100%;
+}
+
+/* Estilos para el campo de selección de formulario */
+select {
+  border: 1px solid #dfe6e9;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 8px;
+}
+
+/* Estilos para el botón de agregar teléfono */
+#agregar-telefono {
+  background-color: #2d3436;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 24px;
+  margin-top: 16px;
+}
+
+/* Estilos para la tabla de inventario y ventas */
+table {
+  border-collapse: collapse;
+  margin-top: 24px;
+  width: 100%;
+}
+
+/* Estilos para las celdas de la tabla de inventario y ventas */
+th {
+  border: 1px solid #292c2e;
+  background-color: #f9ece1;
+  padding: 12px;
+  text-align: left;
+}
+td {
+  border: 1px solid #292c2e;
+  padding: 12px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para la columna de acciones de la tabla */
+.acciones {
+  text-align: center;
+}
+
+/* Estilos para los botones de acción de la tabla */
+.botones-accion {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Estilos para los botones de la tabla */
+.botones-accion button {
+  background-color: #2d3436;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 16px;
+}
+
+/* Estilos para el formulario de venta */
+#vender-form {
+  background-color: #fff;
+  border: 1px solid #dfe6e9;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+#vender-form label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+#vender-form input[type="text"],
+#vender-form input[type="date"],
+#vender-form input[type="number"] {
+  border: 1px solid #dfe6e9;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 8px;
+  width: 100%;
+}
+
+/* Estilos para el botón de agregar teléfono */
+#vender-telefono {
+  background-color: #2d3436;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 24px;
+  margin-top: 16px;
+}
