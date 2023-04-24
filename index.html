@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Inventario de Teléfonos</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script defer src="script.js"></script>
+    <script defer src="limpiarForm.js"></script> 
+  </head>
+  <body>
+    <h1>Inventario de Teléfonos</h1>
+    <div class="container">
+      <h2>Agregar Teléfono</h2>
+      <form>
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="imei">IMEI:</label>
+        <input type="text" id="imei" name="imei" required>
+
+        <label for="espacio">Espacio:</label>
+        <input type="text" id="espacio" name="espacio" required>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+          <option value="">Seleccionar</option>
+          <option value="Nuevo">Nuevo</option>
+          <option value="Usado">Usado</option>
+          <option value="Reacondicionado">Reacondicionado</option>
+        </select>
+
+        <label for="proveedor">Proveedor:</label>
+        <input type="text" id="proveedor" name="proveedor" required>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="precio">Precio ($):</label>
+        <input type="number" id="precio" name="precio" min="1" required>
+
+        <label for="detalles">Detalles:</label>
+        <textarea id="detalles" name="detalles"></textarea>
+
+        <input type="submit" value="Agregar Teléfono" id="agregar-telefono">
+      </form>
+      
+      <h2>Inventario</h2>
+      <table id="inventario">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Nombre</th>
+            <th>IMEI</th>
+            <th>Espacio</th>
+            <th>Color</th>
+            <th>Estado</th>
+            <th>Proveedor</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+            <th>Detalles</th>
+            <th>Disponibilidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="inventario-tbody">
+        </tbody>
+      </table>
+
+      <h2>Ventas</h2>
+      <div id="vender-form" style="display:none;">
+        <h2>Vender teléfono</h2>
+        <form>
+          <label for="cliente">Nombre del cliente:</label>
+          <input type="text" id="cliente" name="cliente" required>
+      
+          <label for="fecha-venta">Fecha de venta:</label>
+          <input type="date" id="fecha-venta" name="fecha-venta" required>
+      
+          <label for="precio-venta">Precio de venta:</label>
+          <input type="number" id="precio-venta" name="precio-venta" required>
+
+          <label for="detalles-venta">Detalles de la venta:</label>
+          <input type="text" id="detalles-venta" name="detalles-venta" required>
+      
+          <input type="submit" value="Vender">
+        </form>
+      </div>
+      <table id="ventas">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Nombre</th>
+            <th>IMEI</th>
+            <th>Espacio</th>
+            <th>Color</th>
+            <th>Estado</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+            <th>Detalles de venta</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="ventas-tbody">
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
