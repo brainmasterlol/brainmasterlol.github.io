@@ -10,8 +10,7 @@ function agregarTelefono() {
     const fecha = document.querySelector("#fecha").value;
     const precio = document.querySelector("#precio").value;
     const detalles = document.querySelector("#detalles").value;
-
-
+    
     // Agregar fila a la tabla de inventario
     const inventarioTabla = document.querySelector("#inventario-tbody");
     const fila = inventarioTabla.insertRow();
@@ -36,90 +35,125 @@ function agregarTelefono() {
 
 
     venderBoton.addEventListener("click", function() {
-        const venderForm = document.querySelector("#vender-form");
-        venderForm.style.display = "block"; 
-        const form = venderForm.querySelector("form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
+      const modelo = fila.cells[0].textContent;
+      const nombre = fila.cells[1].textContent;
+      const imei = fila.cells[2].textContent;
+      const espacio = fila.cells[3].textContent;
+      const color = fila.cells[4].textContent;
+      const estado = fila.cells[5].textContent;
     
-            const cliente = document.querySelector("#cliente").value;
-            const fechaVenta = document.querySelector("#fecha-venta").value;
-            const precioVenta = document.querySelector("#precio-venta").value;
-            const detallesVenta = document.querySelector("#detalles-venta").value;
+      const ventaForm = document.createElement("form");
+      ventaForm.id = "venta-form";
+    
+      const clienteLabel = document.createElement("label");
+      clienteLabel.for = "cliente";
+      clienteLabel.textContent = "Cliente:";
+      ventaForm.appendChild(clienteLabel);
+    
+      const clienteInput = document.createElement("input");
+      clienteInput.type = "text";
+      clienteInput.id = "cliente";
+      clienteInput.name = "cliente";
+      clienteInput.required = true;
+      ventaForm.appendChild(clienteInput);
+    
+      const fechaLabel = document.createElement("label");
+      fechaLabel.for = "fecha-venta";
+      fechaLabel.textContent = "Fecha de venta:";
+      ventaForm.appendChild(fechaLabel);
+    
+      const fechaInput = document.createElement("input");
+      fechaInput.type = "date";
+      fechaInput.id = "fecha-venta";
+      fechaInput.name = "fecha-venta";
+      fechaInput.required = true;
+      ventaForm.appendChild(fechaInput);
+    
+      const precioLabel = document.createElement("label");
+      precioLabel.for = "precio-venta";
+      precioLabel.textContent = "Precio de venta:";
+      ventaForm.appendChild(precioLabel);
+    
+      const precioInput = document.createElement("input");
+      precioInput.type = "number";
+      precioInput.id = "precio-venta";
+      precioInput.name = "precio-venta";
+      precioInput.required = true;
+      ventaForm.appendChild(precioInput);
+    
+      const detallesLabel = document.createElement("label");
+      detallesLabel.for = "detalles-venta";
+      detallesLabel.textContent = "Detalles de venta:";
+      ventaForm.appendChild(detallesLabel);
+    
+      const detallesInput = document.createElement("textarea");
+      detallesInput.id = "detalles-venta";
+      detallesInput.name = "detalles-venta";
+      ventaForm.appendChild(detallesInput);
+    
+      const submitButton = document.createElement("button");
+      submitButton.type = "submit";
+      submitButton.textContent = "Aceptar";
+      ventaForm.appendChild(submitButton);
+    
+      fila.cells[10].textContent = "Vendido";
+      fila.cells[10].innerHTML = "";
+      fila.cells[10].appendChild(document.createTextNode(""));
+    
+      acciones.appendChild(ventaForm);
+      
+      ventaForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const cliente = clienteInput.value;
+        const fechaVenta = fechaInput.value;
+        const precioVenta = precioInput.value;
+        const detallesVenta = detallesInput.value;
+    
+        const ventasTabla = document.querySelector("#ventas-tbody");
+        const nuevaFila = ventasTabla.insertRow();
+        nuevaFila.insertCell().textContent = modelo;
+        nuevaFila.insertCell().textContent = nombre;
+        nuevaFila.insertCell().textContent = imei;
+        nuevaFila.insertCell().textContent = espacio;
+        nuevaFila.insertCell().textContent = color;
+        nuevaFila.insertCell().textContent = estado;
+        nuevaFila.insertCell().textContent = cliente;
+        nuevaFila.insertCell().textContent = fechaVenta;
+        nuevaFila.insertCell().textContent = precioVenta;
+        nuevaFila.insertCell().textContent = detallesVenta;
+          const deshacerBoton = document.createElement("button");
+          deshacerBoton.textContent = "Deshacer";
+          deshacerBoton.classList.add("deshacer-btn");
+          const accionesCelda = nuevaFila.insertCell();
+          accionesCelda.appendChild(deshacerBoton);
 
-            // Buscar el teléfono en la tabla de ventas
-            let filaVentaExistente = null;
-            const ventasTabla = document.querySelector("#ventas-tbody");
-            for (let i = 0; i < ventasTabla.rows.length; i++) {
-              const fila = ventasTabla.rows[i];
-              if (fila.cells[2].textContent === imei) {
-                filaVentaExistente = fila;
-                break;
-              }
-            }
+          deshacerBoton.addEventListener("click", function() {
+          // Cambiar disponibilidad del teléfono a "Disponible"
+          fila.cells[10].textContent = "Disponible";
 
-            if (filaVentaExistente) {
-    filaVenta.cells[6].textContent = cliente;
-    filaVenta.cells[7].textContent = fechaVenta;
-    filaVenta.cells[8].textContent = precioVenta;
-    filaVenta.cells[9].textContent = detallesVenta;
-} else {
-    // Agregar fila a la tabla de ventas
-    const ventasTabla = document.querySelector("#ventas-tbody");
-    const filaVentaNueva = ventasTabla.insertRow();
+          // Reactivar el botón "Vender"
+          venderBoton.disabled = false;
 
-    filaVentaNueva.insertCell().textContent = modelo;
-    filaVentaNueva.insertCell().textContent = nombre;
-    filaVentaNueva.insertCell().textContent = imei;
-    filaVentaNueva.insertCell().textContent = espacio;
-    filaVentaNueva.insertCell().textContent = color;
-    filaVentaNueva.insertCell().textContent = estado;
-    filaVentaNueva.insertCell().textContent = cliente;
-    filaVentaNueva.insertCell().textContent = fechaVenta;
-    filaVentaNueva.insertCell().textContent = precioVenta;
-    filaVentaNueva.insertCell().textContent = detallesVenta;
-    const deshacerBoton = document.createElement("button");
-            deshacerBoton.textContent = "Deshacer";
-            deshacerBoton.classList.add("deshacer-btn");
-            const accionesCelda = filaVentaNueva.insertCell();
-            accionesCelda.appendChild(deshacerBoton);
-
-            deshacerBoton.addEventListener("click", function() {
-            const inventarioTabla = document.querySelector("#inventario-tbody");
-            // Eliminar el teléfono de la tabla de ventas
-            ventasTabla.deleteRow(filaVentaNueva.rowIndex);
-
-            // Agregar el teléfono a la tabla de inventario
-            const filaInventario = inventarioTabla.insertRow();
-            filaInventario.insertCell().textContent = modelo;
-            filaInventario.insertCell().textContent = nombre;
-            filaInventario.insertCell().textContent = imei;
-            filaInventario.insertCell().textContent = espacio;
-            filaInventario.insertCell().textContent = color;
-            filaInventario.insertCell().textContent = estado;
-            filaInventario.insertCell().textContent = proveedor;
-            filaInventario.insertCell().textContent = fecha;
-            filaInventario.insertCell().textContent = precio;
-            filaInventario.insertCell().textContent = detalles;
-            filaInventario.insertCell().textContent = "Disponible";
-
-            // Reactivar el botón de vender
-            venderBoton.disabled = false;
+          // Eliminar el teléfono de la tabla de ventas
+          nuevaFila.parentNode.parentNode.deleteRow(nuevaFila.rowIndex);
           });
-    }
-            fila.cells[10].textContent = "Vendido";
-            venderBoton.disabled = true;
-            document.querySelector("#vender-form").style.display = "none";
-            limpiarFormVentas();
-        });
+          fila.cells[10].textContent = "Vendido";
+          venderBoton.disabled = true;
+          ventaForm.reset();
+          ventaForm.style.display = "none";
+
     });
-    limpiarFormInventario();
+    
+  });
+    
   }
   
   // Manejador de evento para agregar teléfono
   document.querySelector("#agregar-telefono").addEventListener("click", function (event) {
     event.preventDefault();
     agregarTelefono();
+    limpiarFormInventario();
   });
 
   
