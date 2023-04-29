@@ -1,0 +1,99 @@
+/* Fuentes personalizadas */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Colores personalizados */
+:root {
+  --primary-color: #aeea00;
+  --secondary-color: #0d1102;
+  --gray-color: #8e8e8e;
+  --white-color: #fefefe;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--gray-color);
+  background-color: var(--white-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 48px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 50px;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  margin-bottom: 50px;
+}
+
+label {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #9bc400;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+thead tr {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

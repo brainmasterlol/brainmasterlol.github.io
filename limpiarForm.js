@@ -1,7 +1,7 @@
 // Limpiar formulario de inventario
 function limpiarFormInventario () {
+    document.querySelector("#marca").value = "";
     document.querySelector("#modelo").value = "";
-    document.querySelector("#nombre").value = "";
     document.querySelector("#imei").value = "";
     document.querySelector("#espacio").value = "";
     document.querySelector("#color").value = "";
